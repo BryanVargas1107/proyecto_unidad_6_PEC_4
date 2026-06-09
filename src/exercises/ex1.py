@@ -1,7 +1,6 @@
 """
 Ejercicio 1: Carga del dataset y análisis exploratorio de los datos.
 """
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import config
@@ -24,7 +23,7 @@ def load_and_eda(file: str) -> pd.DataFrame:
     return data
 
 
-def plot_home_away_goals(data: pd.DataFrame) -> None:
+def plot_home_away_goals(data: pd.DataFrame) -> str:
     """
     Genera una figura con dos boxplots que muestran la distribución de goles
     marcados por los equipos locales (FTHG) y visitantes (FTAG).
@@ -63,9 +62,7 @@ def plot_home_away_goals(data: pd.DataFrame) -> None:
                  fontsize=14, fontweight="bold")
     plt.tight_layout()
 
-    src_dir = os.path.dirname(os.path.dirname(__file__))
-    img_dir = os.path.join(src_dir, "img")
-    os.makedirs(img_dir, exist_ok=True)
-    filename = f"grafica_ex1_{config.nom_alumne}_{config.date_time}.png"
-    plt.savefig(os.path.join(img_dir, filename), dpi=150, bbox_inches="tight")
+    output_path = f"src/img/grafica_ex1_{config.nom_alumne}_{config.date_time}.png"
+    plt.savefig(output_path, dpi=150, bbox_inches="tight")
     plt.close()
+    return output_path

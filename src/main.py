@@ -52,8 +52,8 @@ def main():
         print(f"Tipos de datos:\n{data.dtypes}\n")
         print(f"Estadísticas descriptivas:\n{data.describe()}\n")
         print(f"Valores nulos:\n{data.isnull().sum()}\n")
-        ex1.plot_home_away_goals(data)
-        print(f"Gráfica guardada en: src/img/grafica_ex1_{config.nom_alumne}_{config.date_time}.png")
+        img_path = ex1.plot_home_away_goals(data)
+        print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 2:
         print("\n[EX2] Ejercicio 2: Partidos totales jugados")
@@ -65,8 +65,8 @@ def main():
             matches_team_total["total_matches"] == max_val
         ]
         print(f"Equipos siempre en Primera División:\n{always_first}\n")
-        ex2.plot_matches_team_total(matches_team_total)
-        print(f"Gráfica guardada en: src/img/grafica_ex2_{config.nom_alumne}_{config.date_time}.png")
+        img_path = ex2.plot_matches_team_total(matches_team_total)
+        print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 3:
         print("\n[EX3] Ejercicio 3: Distribución de goles")
@@ -74,14 +74,19 @@ def main():
         distr_goals_home, distr_goals_away = ex3.goals_distribution(data)
         print(f"Distribución goles local:\n{distr_goals_home}\n")
         print(f"Distribución goles visitante:\n{distr_goals_away}\n")
-        ex3.plot_goals_distribution(distr_goals_home, distr_goals_away)
-        print(f"Gráfica guardada en: src/img/grafica_ex3_{config.nom_alumne}_{config.date_time}.png")
+        img_path = ex3.plot_goals_distribution(distr_goals_home, distr_goals_away)
+        print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 4:
-        print("\n[EX4] Ejercicio 4")
+        print("\n[EX4] Ejercicio 4: Partidos ganados en casa/fuera")
         print("-" * 60)
-        # resultado = ex4.nombre_funcion()
-        # print(resultado)
+        ftr_df = ex4.FTR(data)
+        print(f"Conteo de resultados (H, A, D):\n{ftr_df}\n")
+        total = ftr_df["Matches"].sum()
+        home_wins = ftr_df.loc["H", "Matches"]
+        print(f"Los equipos locales ganan el {(home_wins / total) * 100:.2f}% de los partidos.\n")
+        img_path = ex4.plot_FTR(ftr_df)
+        print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 5:
         print("\n[EX5] Ejercicio 5")

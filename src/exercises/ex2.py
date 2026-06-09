@@ -1,7 +1,6 @@
 """
 Ejercicio 2: Partidos totales jugados por equipo.
 """
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
@@ -40,7 +39,7 @@ def total_matches(data: pd.DataFrame) -> pd.DataFrame:
     return matches_team_total
 
 
-def plot_matches_team_total(matches_team_total: pd.DataFrame) -> None:
+def plot_matches_team_total(matches_team_total: pd.DataFrame) -> str:
     """
     Genera un gráfico de barras con el total de partidos jugados
     por cada equipo. Los equipos siempre en primera división
@@ -88,10 +87,8 @@ def plot_matches_team_total(matches_team_total: pd.DataFrame) -> None:
     ax.legend(handles=legend_elements, fontsize=10, loc="upper right")
     plt.tight_layout()
 
-    src_dir = os.path.dirname(os.path.dirname(__file__))
-    img_dir = os.path.join(src_dir, "img")
-    os.makedirs(img_dir, exist_ok=True)
-    filename = f"grafica_ex2_{config.nom_alumne}_{config.date_time}.png"
-    plt.savefig(os.path.join(img_dir, filename), dpi=150, bbox_inches="tight")
+    output_path = f"src/img/grafica_ex2_{config.nom_alumne}_{config.date_time}.png"
+    plt.savefig(output_path, dpi=150, bbox_inches="tight")
     plt.close()
+    return output_path
     

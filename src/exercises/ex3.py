@@ -1,7 +1,6 @@
 """
 Ejercicio 3: Distribución de goles marcados por equipos locales y visitantes.
 """
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import config
@@ -46,7 +45,7 @@ def goals_distribution(data: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 def plot_goals_distribution(
     distr_goals_home: pd.DataFrame,
     distr_goals_away: pd.DataFrame
-) -> None:
+) -> str:
     """
     Genera una figura con dos subplots de barras que representan la
     distribución de goles marcados por los equipos locales y visitantes.
@@ -97,9 +96,7 @@ def plot_goals_distribution(
     )
     plt.tight_layout()
 
-    src_dir = os.path.dirname(os.path.dirname(__file__))
-    img_dir = os.path.join(src_dir, "img")
-    os.makedirs(img_dir, exist_ok=True)
-    filename = f"grafica_ex3_{config.nom_alumne}_{config.date_time}.png"
-    plt.savefig(os.path.join(img_dir, filename), dpi=150, bbox_inches="tight")
+    output_path = f"src/img/grafica_ex3_{config.nom_alumne}_{config.date_time}.png"
+    plt.savefig(output_path, dpi=150, bbox_inches="tight")
     plt.close()
+    return output_path
