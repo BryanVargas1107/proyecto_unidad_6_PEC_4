@@ -10,6 +10,7 @@ Uso:
 """
 import argparse
 import sys
+import os
 
 from exercises import ex1, ex2, ex3, ex4, ex5, ex6, ex7  # pylint: disable=unused-import
 
@@ -41,10 +42,18 @@ def main():
     print("=" * 60)
 
     if args.ex >= 1:
-        print("\n[EX1] Ejercicio 1")
+        print("\n[EX1] Ejercicio 1: Carga del dataset y análisis exploratorio")
         print("-" * 60)
-        # resultado = ex1.nombre_funcion()
-        # print(resultado)
+        data_path = os.path.join(os.path.dirname(__file__), "data", "LaLiga_Matches.csv")
+        data = ex1.load_and_eda(data_path)
+        print(f"Primeras filas:\n{data.head()}\n")
+        print(f"Últimas filas:\n{data.tail()}\n")
+        print(f"Dimensiones: {data.shape[0]} filas x {data.shape[1]} columnas\n")
+        print(f"Tipos de datos:\n{data.dtypes}\n")
+        print(f"Estadísticas descriptivas:\n{data.describe()}\n")
+        print(f"Valores nulos:\n{data.isnull().sum()}\n")
+        ex1.plot_home_away_goals(data)
+        print("Gráfica guardada en src/img/home_away_goals.png")
 
     if args.ex >= 2:
         print("\n[EX2] Ejercicio 2")
