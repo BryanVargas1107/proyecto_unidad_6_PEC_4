@@ -56,10 +56,17 @@ def main():
         print("Gráfica guardada en src/img/home_away_goals.png")
 
     if args.ex >= 2:
-        print("\n[EX2] Ejercicio 2")
+        print("\n[EX2] Ejercicio 2: Partidos totales jugados")
         print("-" * 60)
-        # resultado = ex2.nombre_funcion()
-        # print(resultado)
+        matches_team_total = ex2.total_matches(data)
+        print(f"Top 10 equipos con más partidos:\n{matches_team_total.head(10)}\n")
+        max_val = matches_team_total["total_matches"].max()
+        always_first = matches_team_total[
+            matches_team_total["total_matches"] == max_val
+        ]
+        print(f"Equipos siempre en Primera División:\n{always_first}\n")
+        ex2.plot_matches_team_total(matches_team_total)
+        print("Gráfica guardada en src/img/matches_team_total.png")
 
     if args.ex >= 3:
         print("\n[EX3] Ejercicio 3")
