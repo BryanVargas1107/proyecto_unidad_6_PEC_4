@@ -69,10 +69,13 @@ def main():
         print(f"Gráfica guardada en: src/img/grafica_ex2_{config.nom_alumne}_{config.date_time}.png")
 
     if args.ex >= 3:
-        print("\n[EX3] Ejercicio 3")
+        print("\n[EX3] Ejercicio 3: Distribución de goles")
         print("-" * 60)
-        # resultado = ex3.nombre_funcion()
-        # print(resultado)
+        distr_goals_home, distr_goals_away = ex3.goals_distribution(data)
+        print(f"Distribución goles local:\n{distr_goals_home}\n")
+        print(f"Distribución goles visitante:\n{distr_goals_away}\n")
+        ex3.plot_goals_distribution(distr_goals_home, distr_goals_away)
+        print(f"Gráfica guardada en: src/img/grafica_ex3_{config.nom_alumne}_{config.date_time}.png")
 
     if args.ex >= 4:
         print("\n[EX4] Ejercicio 4")
