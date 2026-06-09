@@ -44,55 +44,78 @@ def main():
     if args.ex >= 1:
         print("\n[EX1] Ejercicio 1: Carga del dataset y análisis exploratorio")
         print("-" * 60)
+
         data_path = os.path.join(os.path.dirname(__file__), "data", "LaLiga_Matches.csv")
         data = ex1.load_and_eda(data_path)
+
         print(f"Primeras filas:\n{data.head()}\n")
         print(f"Últimas filas:\n{data.tail()}\n")
         print(f"Dimensiones: {data.shape[0]} filas x {data.shape[1]} columnas\n")
         print(f"Tipos de datos:\n{data.dtypes}\n")
         print(f"Estadísticas descriptivas:\n{data.describe()}\n")
         print(f"Valores nulos:\n{data.isnull().sum()}\n")
+
         img_path = ex1.plot_home_away_goals(data)
         print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 2:
         print("\n[EX2] Ejercicio 2: Partidos totales jugados")
         print("-" * 60)
+
         matches_team_total = ex2.total_matches(data)
         print(f"Top 10 equipos con más partidos:\n{matches_team_total.head(10)}\n")
+
         max_val = matches_team_total["total_matches"].max()
         always_first = matches_team_total[
             matches_team_total["total_matches"] == max_val
         ]
         print(f"Equipos siempre en Primera División:\n{always_first}\n")
+
         img_path = ex2.plot_matches_team_total(matches_team_total)
         print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 3:
         print("\n[EX3] Ejercicio 3: Distribución de goles")
         print("-" * 60)
+
         distr_goals_home, distr_goals_away = ex3.goals_distribution(data)
         print(f"Distribución goles local:\n{distr_goals_home}\n")
         print(f"Distribución goles visitante:\n{distr_goals_away}\n")
+
         img_path = ex3.plot_goals_distribution(distr_goals_home, distr_goals_away)
         print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 4:
         print("\n[EX4] Ejercicio 4: Partidos ganados en casa/fuera")
         print("-" * 60)
+        
         ftr_df = ex4.FTR(data)
         print(f"Conteo de resultados (H, A, D):\n{ftr_df}\n")
+
         total = ftr_df["Matches"].sum()
         home_wins = ftr_df.loc["H", "Matches"]
         print(f"Los equipos locales ganan el {(home_wins / total) * 100:.2f}% de los partidos.\n")
+
         img_path = ex4.plot_FTR(ftr_df)
         print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 5:
-        print("\n[EX5] Ejercicio 5")
+        print("\n[EX5] Ejercicio 5: Clasificación global 1995-2025")
         print("-" * 60)
-        # resultado = ex5.nombre_funcion()
-        # print(resultado)
+        
+        data_with_points = ex5.add_points(data)
+        
+        cols_to_show = ["HomeTeam", "AwayTeam", "FTR", "points_home", "points_away"]
+        print("Primeros 10 valores con puntos asignados:")
+        print(f"{data_with_points[cols_to_show].head(10)}\n")
+        
+        series_pts, df_pts = ex5.fun_total_points(data_with_points)
+        
+        print("Top 10 de la clasificación histórica:")
+        print(f"{df_pts.head(10)}\n")
+        
+        ganador = ex5.alltime_winner(df_pts)
+        print(f"Ganador histórico de La Liga (1995-2025): ¡{ganador}!\n")
 
     if args.ex >= 6:
         print("\n[EX6] Ejercicio 6")
