@@ -11,7 +11,7 @@ Uso:
 import argparse
 import sys
 import os
-
+import config
 from exercises import ex1, ex2, ex3, ex4, ex5, ex6, ex7  # pylint: disable=unused-import
 
 
@@ -53,7 +53,7 @@ def main():
         print(f"Estadísticas descriptivas:\n{data.describe()}\n")
         print(f"Valores nulos:\n{data.isnull().sum()}\n")
         ex1.plot_home_away_goals(data)
-        print("Gráfica guardada en src/img/home_away_goals.png")
+        print(f"Gráfica guardada en: src/img/grafica_ex1_{config.nom_alumne}_{config.date_time}.png")
 
     if args.ex >= 2:
         print("\n[EX2] Ejercicio 2: Partidos totales jugados")
@@ -66,7 +66,7 @@ def main():
         ]
         print(f"Equipos siempre en Primera División:\n{always_first}\n")
         ex2.plot_matches_team_total(matches_team_total)
-        print("Gráfica guardada en src/img/matches_team_total.png")
+        print(f"Gráfica guardada en: src/img/grafica_ex2_{config.nom_alumne}_{config.date_time}.png")
 
     if args.ex >= 3:
         print("\n[EX3] Ejercicio 3")
