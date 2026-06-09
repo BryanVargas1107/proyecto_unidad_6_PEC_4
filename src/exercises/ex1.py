@@ -2,9 +2,9 @@
 Ejercicio 1: Carga del dataset y análisis exploratorio de los datos.
 """
 import os
-import config
 import pandas as pd
 import matplotlib.pyplot as plt
+import config
 
 
 def load_and_eda(file: str) -> pd.DataFrame:
@@ -40,21 +40,21 @@ def plot_home_away_goals(data: pd.DataFrame) -> None:
     fig, axes = plt.subplots(1, 2, figsize=(10, 6))
 
     axes[0].boxplot(data["FTHG"].dropna(), patch_artist=True,
-                    boxprops=dict(facecolor="#4C72B0", color="#2c3e50"),
-                    medianprops=dict(color="white", linewidth=2),
-                    whiskerprops=dict(color="#2c3e50"),
-                    capprops=dict(color="#2c3e50"),
-                    flierprops=dict(marker="o", color="#4C72B0", alpha=0.4))
+                    boxprops={"facecolor": "#4C72B0", "color": "#2c3e50"},
+                    medianprops={"color": "white", "linewidth": 2},
+                    whiskerprops={"color": "#2c3e50"},
+                    capprops={"color": "#2c3e50"},
+                    flierprops={"marker": "o", "color": "#4C72B0", "alpha": 0.4})
     axes[0].set_title("Goles equipo local (FTHG)", fontsize=13)
     axes[0].set_ylabel("Número de goles")
     axes[0].set_xticks([])
 
     axes[1].boxplot(data["FTAG"].dropna(), patch_artist=True,
-                    boxprops=dict(facecolor="#DD8452", color="#2c3e50"),
-                    medianprops=dict(color="white", linewidth=2),
-                    whiskerprops=dict(color="#2c3e50"),
-                    capprops=dict(color="#2c3e50"),
-                    flierprops=dict(marker="o", color="#DD8452", alpha=0.4))
+                    boxprops={"facecolor": "#DD8452", "color": "#2c3e50"},
+                    medianprops={"color": "white", "linewidth": 2},
+                    whiskerprops={"color": "#2c3e50"},
+                    capprops={"color": "#2c3e50"},
+                    flierprops={"marker": "o", "color": "#DD8452", "alpha": 0.4})
     axes[1].set_title("Goles equipo visitante (FTAG)", fontsize=13)
     axes[1].set_ylabel("Número de goles")
     axes[1].set_xticks([])

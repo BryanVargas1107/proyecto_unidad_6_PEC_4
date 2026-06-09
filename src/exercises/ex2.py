@@ -2,10 +2,10 @@
 Ejercicio 2: Partidos totales jugados por equipo.
 """
 import os
-import config
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
+import config
 
 
 def total_matches(data: pd.DataFrame) -> pd.DataFrame:
@@ -62,7 +62,7 @@ def plot_matches_team_total(matches_team_total: pd.DataFrame) -> None:
         for v in matches_team_total["total_matches"]
     ]
 
-    fig, ax = plt.subplots(figsize=(18, 7))
+    _, ax = plt.subplots(figsize=(18, 7))
     ax.bar(
         matches_team_total.index,
         matches_team_total["total_matches"],
