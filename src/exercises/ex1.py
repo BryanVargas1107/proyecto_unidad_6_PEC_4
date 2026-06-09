@@ -69,4 +69,3 @@ def plot_home_away_goals(data: pd.DataFrame) -> None:
     filename = f"grafica_ex1_{config.nom_alumne}_{config.date_time}.png"
     plt.savefig(os.path.join(img_dir, filename), dpi=150, bbox_inches="tight")
     plt.close()
-    
