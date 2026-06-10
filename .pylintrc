@@ -1,0 +1,6 @@
+[MESSAGES CONTROL]
+disable=
+
+[DESIGN]
+max-locals=30
+max-statements=100
