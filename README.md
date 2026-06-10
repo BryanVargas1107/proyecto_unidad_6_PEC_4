@@ -2,7 +2,7 @@
 ### Proyecto Unidad 6 — PEC 4
 
 **Autor:** Bryan Vargas  
-**Asignatura:** Programación en Python  
+**Asignatura:** 22.503 - Programación para la ciencia de datos - Aula 4  
 
 ---
 
