@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module exercises.ex5</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="exercises.html" class="white">exercises</a>.ex5</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cproyectos%5Cproyecto_unidad_6_pec_4%5Csrc%5Cexercises%5Cex5.py">c:\proyectos\proyecto_unidad_6_pec_4\src\exercises\ex5.py</a></td></tr></table>
+    <p><span class="code">Ejercicio&nbsp;5:&nbsp;Clasificación&nbsp;global&nbsp;de&nbsp;La&nbsp;Liga&nbsp;(1995-2025).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="pandas.html">pandas</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-add_points"><strong>add_points</strong></a>(data: pandas.DataFrame) -&gt; pandas.DataFrame</dt><dd><span class="code">Añade&nbsp;al&nbsp;dataset&nbsp;las&nbsp;columnas&nbsp;'points_home'&nbsp;y&nbsp;'points_away',<br>
+asignando&nbsp;3,&nbsp;1&nbsp;o&nbsp;0&nbsp;puntos&nbsp;en&nbsp;función&nbsp;del&nbsp;resultado&nbsp;del&nbsp;partido&nbsp;(FTR).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;(pandas.DataFrame):&nbsp;Dataset&nbsp;de&nbsp;La&nbsp;Liga.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pandas.DataFrame:&nbsp;Nuevo&nbsp;DataFrame&nbsp;con&nbsp;las&nbsp;dos&nbsp;columnas&nbsp;añadidas.</span></dd></dl>
+ <dl><dt><a name="-alltime_winner"><strong>alltime_winner</strong></a>(df_total_points: pandas.DataFrame) -&gt; str</dt><dd><span class="code">Devuelve&nbsp;el&nbsp;equipo&nbsp;que&nbsp;ha&nbsp;acumulado&nbsp;más&nbsp;puntos&nbsp;históricamente.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;df_total_points&nbsp;(pandas.DataFrame):&nbsp;Clasificación&nbsp;histórica.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;Nombre&nbsp;del&nbsp;equipo&nbsp;ganador.</span></dd></dl>
+ <dl><dt><a name="-fun_total_points"><strong>fun_total_points</strong></a>(data: pandas.DataFrame) -&gt; tuple[pandas.Series, pandas.DataFrame]</dt><dd><span class="code">Calcula&nbsp;el&nbsp;total&nbsp;de&nbsp;puntos&nbsp;conseguidos&nbsp;y&nbsp;acumulados&nbsp;desde&nbsp;1995<br>
+por&nbsp;cada&nbsp;equipo.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;(pandas.DataFrame):&nbsp;Dataset&nbsp;que&nbsp;ya&nbsp;contiene&nbsp;las&nbsp;columnas&nbsp;de&nbsp;puntos.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;tuple:&nbsp;(pd.Series,&nbsp;pd.DataFrame)&nbsp;con&nbsp;la&nbsp;misma&nbsp;información&nbsp;de&nbsp;los<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puntos&nbsp;totales&nbsp;ordenados&nbsp;de&nbsp;mayor&nbsp;a&nbsp;menor.</span></dd></dl>
+</td></tr></table>
+</body></html>
