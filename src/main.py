@@ -118,10 +118,20 @@ def main():
         print(f"Ganador histórico de La Liga (1995-2025): ¡{ganador}!\n")
 
     if args.ex >= 6:
-        print("\n[EX6] Ejercicio 6")
+        print("\n[EX6] Ejercicio 6: Dataframe summary y podium histórico")
         print("-" * 60)
-        # resultado = ex6.fun_total_goals()
-        # print(resultado)
+
+        home_g, away_g, total_g = ex6.fun_total_goals(data_with_points)
+        print(f"Goles locales: {home_g} | Visitantes: {away_g} | Total: {total_g}\n")
+
+        home_gbt, away_gbt, total_gbt = ex6.fun_total_goals_by_team(data_with_points)
+        print(f"Top 10 goles totales por equipo:\n{total_gbt.head(10)}\n")
+
+        summary = ex6.fun_summary_1996_2025(df_pts, home_gbt, away_gbt, total_gbt)
+        print(f"Resumen histórico (primeros 5):\n{summary.head()}\n")
+
+        img_path = ex6.podium(summary)
+        print(f"Gráfica guardada en: {img_path}")
 
     if args.ex >= 7:
         print("\n[EX7] Ejercicio 7")
