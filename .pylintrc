@@ -1,6 +1,9 @@
 [MESSAGES CONTROL]
-disable=
+disable=wrong-import-position
 
 [DESIGN]
 max-locals=30
 max-statements=100
+
+[MASTER]
+init-hook='import sys; sys.path.insert(0, "src")'
